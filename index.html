@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern QR Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="p-4 md:p-0">
+
+    <div class="glass max-w-md w-full shadow-2xl p-8 text-center transition-all duration-300">
+        <div class="mb-6">
+            <div class="inline-block p-3 bg-indigo-100 rounded-2xl mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">QR Studio</h1>
+            <p class="text-gray-600 mt-2">Generate clean, scannable codes in seconds.</p>
+        </div>
+
+        <div class="space-y-5">
+            <input 
+                type="text" 
+                id="url-input" 
+                placeholder="Enter URL (e.g. google.com)" 
+                class="w-full px-5 py-4 bg-white/50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all text-gray-800 placeholder-gray-400 font-medium"
+            >
+
+            <button 
+                onclick="generateQR()" 
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-2xl shadow-lg shadow-indigo-500/30 transition-all active:scale-[0.98]"
+            >
+                Create QR Code
+            </button>
+
+            <div id="qrcode-container" class="hidden flex flex-col items-center justify-center pt-6 reveal">
+                <div id="qrcode" class="p-4 bg-white rounded-2xl shadow-inner ring-1 ring-black/5"></div>
+                
+                <button 
+                    onclick="downloadQR()" 
+                    class="mt-6 flex items-center gap-2 text-indigo-700 font-bold hover:text-indigo-900 transition-colors"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Download PNG
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
